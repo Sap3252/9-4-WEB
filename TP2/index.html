@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Seleccion Radio Buttons</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="form">
+            <fieldset>
+                <legend>Elige tu genero:</legend>
+                <div>
+                    <input type="radio" id="hombre" name="opcion" value="hombre">
+                    <label for="hombre">Hombre</label>
+                </div>
+                <div>
+                    <input type="radio" id="mujer" name="opcion" value="mujer">
+                    <label for="mujer">Mujer</label>
+                </div>
+                <div>
+                    <input type="radio" id="otro" name="opcion" value="otro">
+                    <label for="otro">Otro</label>
+                </div>
+            </fieldset>
+        </form>
+    
+        <p id="resultado">Aún no has seleccionado nada</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('form');
+        const resultado = document.getElementById('resultado');
+
+        form.addEventListener('change', function(event) {
+            if (event.target.type === 'radio') {
+                resultado.textContent = 'Sos ' + event.target.value;
+            }
+        });
+    </script>
+
+</body>
+</html>
