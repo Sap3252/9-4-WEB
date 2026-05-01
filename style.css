@@ -1,0 +1,155 @@
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #383838;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #a2a9b1;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.wiki-logo {
+    width: 300px; 
+    height: auto;
+    margin-right: 20px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.article-content {
+    flex: 2; 
+}
+
+.infobox {
+    flex: 1; 
+    background-color: #808080;
+    border: 1px solid #f4fc00;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+.infobox img {
+    width: 100%; 
+    height: auto;
+}
+
+.infobox table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.infobox th {
+    text-align: left;
+    padding: 8px;
+    background-color: #3b3b3b;
+    text-align: left;
+}
+
+.infobox th, .infobox td {
+    border: 1px solid #f4fc00;
+    padding: 6px;
+}
+
+.link-supertierra-con-icono,  
+.link-Helldivers-con-icono,
+.link-Iluminados-con-icono,
+.link-terminidos-con-icono,
+.link-cyborgs-con-icono,
+.link-insectos-con-icono,
+.link-automatas-con-icono
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.link-supertierra-con-icono img{
+    width: 20px;
+    height: auto;
+}
+
+a
+{
+    color: #c6b025;
+    text-decoration: underline;
+}
+
+a:hover, a:focus {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+a:hover strong, a:focus strong {
+    color: #ffffff !important;
+}
+
+.link-supertierra-con-icono strong {
+    color: #2583c7;
+}
+
+.link-Helldivers-con-icono strong {
+    color: #ffcc00;
+}
+
+.link-cyborgs-con-icono strong {
+    color: #541b04;
+}
+
+.link-insectos-con-icono strong {
+    color: #9e5f02;
+}
+
+.link-Iluminados-con-icono strong {
+    color: #5c35aa;
+}
+
+.link-terminidos-con-icono strong {
+    color: #b08202;
+}
+
+.link-automatas-con-icono strong {
+    color: #b30707;
+}
+
+#galeria img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+#Screenshots img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+#footer {
+    background-color: black;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #a2a9b1;
+    text-align: center;
+    font-size: 0.8em;
+    color: #ffffff;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
