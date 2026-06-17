@@ -162,6 +162,48 @@ a:hover strong, a:focus strong {
     padding-bottom: 20px;
 }
 
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+    max-width: 420px;
+}
+
+.form-field input {
+    padding: 8px 10px;
+    border: 1px solid #a2a9b1;
+    border-radius: 4px;
+    font: inherit;
+    background-color: #555;
+    color: #ffffff;
+}
+
+.form-field input::placeholder {
+    color: #aaa;
+}
+
+.error-message {
+    min-height: 1.2em;
+    color: #ffb3b3;
+    font-size: 0.9em;
+}
+
+#formulario button {
+    padding: 10px 16px;
+    font: inherit;
+    cursor: pointer;
+    background-color: #c6b025;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#formulario button:hover {
+    background-color: #e6d235;
+}
+
 @media (max-width: 768px) and (min-width: 480px) {
     body {
                 font-size: 20px;
