@@ -239,6 +239,52 @@ a:hover strong, a:focus strong {
     }
 }
 
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.oculto {
+    display: none;
+}
+
+.modal-contenido {
+    position: relative;
+    background-color: #2c2c2c;
+    border: 1px solid #c6b025;
+    border-radius: 8px;
+    padding: 24px 30px;
+    max-width: 420px;
+    width: 90%;
+    color: #ffffff;
+}
+
+.modal-contenido h3 {
+    margin-top: 0;
+    color: #c6b025;
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5em;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal-cerrar:hover {
+    color: #c6b025;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 12px;

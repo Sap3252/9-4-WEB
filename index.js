@@ -12,6 +12,11 @@ const codigoPostal = document.getElementById("codigoPostal");
 const dni = document.getElementById("dni");
 const bienvenida = document.getElementById("bienvenida");
 
+const modal = document.getElementById("modal");
+const modalTitulo = document.getElementById("modalTitulo");
+const modalMensaje = document.getElementById("modalMensaje");
+const modalCerrar = document.getElementById("modalCerrar");
+
 var boolnombre = false;
 var boolemail = false;
 var boolpassword = false;
@@ -250,17 +255,82 @@ dni.addEventListener("input", function() {
     dni.nextElementSibling.textContent = "";
 });
 
-// Enviar formulario
+function mostrarModal(titulo, mensaje) {
+    modalTitulo.textContent = titulo;
+    modalMensaje.textContent = mensaje;
+    modal.classList.remove("oculto");
+}
+
+function ocultarModal() {
+    modal.classList.add("oculto");
+}
+
+modalCerrar.addEventListener("click", ocultarModal);
+
+modal.addEventListener("click", function(e) {
+    if (e.target === modal) {
+        ocultarModal();
+    }
+});
+
+function manejarExito(data) {
+    bienvenida.textContent = "Hola, " + nombre.value;
+    bienvenida.style.color = "#e6d235";
+
+    const datosGuardados = {
+        nombre: nombre.value,
+        email: email.value,
+        edad: edad.value,
+        telefono: telefono.value,
+        direccion: direccion.value,
+        ciudad: ciudad.value,
+        codigoPostal: codigoPostal.value,
+        dni: dni.value
+    };
+    localStorage.setItem("datosFormulario", JSON.stringify(datosGuardados));
+
+    mostrarModal("Registro exitoso", "Tus datos se enviaron correctamente.");
+}
+
+function manejarError(error) {
+    mostrarModal("Error en el envío", "No se pudieron enviar los datos. Intenta nuevamente más tarde.");
+}
+
 formulario.addEventListener("submit", function(e) {
-    
+
     e.preventDefault();
     if (!boolnombre || !boolemail || !boolpassword || !boolconfirmPassword || !booledad || !booltelefono || !booldireccion || !boolciudad || !boolcodigoPostal || !booldni) {
         alert("Por favor, complete el formulario correctamente antes de enviar.");
         return;
     }
-    else {
-        console.log("Formulario enviado");
-        bienvenida.textContent = "Hola, " + nombre.value;
-        bienvenida.style.color = "#e6d235";
+
+    const queryParams = new URLSearchParams(new FormData(formulario)).toString();
+    const url = "https://jsonplaceholder.typicode.com/posts?" + queryParams;
+
+    fetch(url, { method: "POST" })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error("Respuesta del servidor no exitosa: " + response.status);
+            }
+            return response.json();
+        })
+        .then(manejarExito)
+        .catch(manejarError);
+});
+
+window.addEventListener("load", function() {
+    const guardados = localStorage.getItem("datosFormulario");
+    if (!guardados) {
+        return;
     }
+
+    const datos = JSON.parse(guardados);
+    nombre.value = datos.nombre || "";
+    email.value = datos.email || "";
+    edad.value = datos.edad || "";
+    telefono.value = datos.telefono || "";
+    direccion.value = datos.direccion || "";
+    ciudad.value = datos.ciudad || "";
+    codigoPostal.value = datos.codigoPostal || "";
+    dni.value = datos.dni || "";
 });
